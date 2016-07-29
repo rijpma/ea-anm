@@ -2,7 +2,7 @@ rm(list=ls())
 options(stringsAsFactors=FALSE)
 setwd("~/dropbox/testing todd/")
 
-source("matching/btw_functions.R")
+source("matching/eanm_functions.R")
 
 library("maptools")
 library("foreign")
