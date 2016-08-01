@@ -1,3 +1,6 @@
+wgs = sp::CRS("+proj=longlat +datum=WGS84 +no_defs ")
+utm = sp::CRS("+proj=utm +zone=10 +datum=WGS84")
+
 rect2pol = function(xleft, ybottom, xright, ytop){
     out = Polygon(matrix(c(xleft, xleft, xright, xright, xleft,
                ybottom, ytop, ytop, ybottom, ybottom), ncol=2))
@@ -8,7 +11,7 @@ pol2spdf = function(pol, dat){
     for (i in 1:length(pol)){
         pols[[i]] = Polygons(list(pol[[i]]), i)
     }
-    spols = SpatialPolygons(pols, )
+    spols = SpatialPolygons(pols)
     spdf = SpatialPolygonsDataFrame(spols, data=dat, match.ID=F)
     return(spdf)
 }
@@ -16,6 +19,13 @@ to_col = function(x, cuts=9, pal='RdPu'){
     plt <- RColorBrewer::brewer.pal(cuts, pal)
     col <- plt[cut(x, 9)]
     return(col)
+}
+add_legend = function(x, cuts=9){
+    cols = to_col(x, cuts=cuts)
+    x_cut = cut(x, cuts)
+    dat = unique(data.frame(x_cut, value=as.character(x_cut), cols))
+    dat = dat[order(dat$x_cut), ]
+    legend(x='bottomleft', legend=dat$value, fill=dat$cols)
 }
 factor2char <- function(dat){
     factors <- sapply(dat, class) == 'factor'
