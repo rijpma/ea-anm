@@ -147,10 +147,6 @@ maptools::writeSpatialShape(greg_exp, 'matching/dat/murocknarodov')
 table(!is.na(greg_exp$greg_g1sname))
 sort(table(greg_exp$G1SHORTNAM))
 
-png("matching/fig/matched.png", , width=1080, height=600)
-plot(greg_exp, col=!is.na(greg_exp$greg_g1sname), lwd=0.2)
-dev.off()
-
 png('matching/fig/maptest.png', width=480*3, height=480*2)
 plot(greg_exp, col=greg_exp$v8, lwd=0.1)
 legend('bottomleft', fill=unique(greg_exp$v8), legend=unique(greg_exp$v8))
