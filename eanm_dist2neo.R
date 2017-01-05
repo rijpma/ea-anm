@@ -63,7 +63,8 @@ world_nosea_nb[world_nosea_nb != 0] = 1
 tr = gdistance::transition(world_nosea_nb, mean, directions=8)
 afghan_routes = gdistance::shortestPath(tr, coordinates(mdn[5, ]), pc[c(1:4, 6), ], output="SpatialLines")
 
-png('matching/fig/distance_by_land_exmpl.png', width=720)
+# png('matching/fig/distance_by_land_exmpl.png', width=720)
+postscript('matching/fig/vectors4ccr/f6_distance_by_land_exmpl.eps', width=10, height=6)
 plot(world_nosea_nb, xlim=c(0, 130), ylim=c(0, 70), col=c(0, 'lightgray'))
 points(pc)
 points(coordinates(mdn[5, ]), col=2)
