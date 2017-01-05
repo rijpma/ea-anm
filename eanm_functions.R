@@ -17,7 +17,7 @@ pol2spdf = function(pol, dat){
 }
 to_col = function(x, cuts=9, pal='RdPu'){
     plt <- RColorBrewer::brewer.pal(cuts, pal)
-    col <- plt[cut(x, 9)]
+    col <- plt[cut(x, cuts)]
     return(col)
 }
 add_legend = function(x, cuts=9){
