@@ -111,8 +111,8 @@ plot(out[,3], type='b')
 plot(out[,4] * -1, type='b')
 
 mdn@data$fa = fan$scores[match(rownames(mdn@data), rownames(fan$scores))]
-mdn@data$fapoly = fap$scores[match(rownames(mdn@data), rownames(fan$scores))]
-mdn@data$pc1 = prc$x[match(rownames(mdn@data), rownames(fan$scores)), "PC1"]
+mdn@data$fapoly = fap$scores[match(rownames(mdn@data), rownames(fap$scores))]
+mdn@data$pc1 = prc$x[match(rownames(mdn@data), rownames(prc$x)), "PC1"]
 mdn@data$pc1 = max(mdn@data$pc1, na.rm=T) - mdn@data$pc1 / max(mdn@data$pc1, na.rm=T)
 
 mdn@data = factor2char(mdn@data)
